@@ -25,5 +25,6 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /App
-COPY --from=build-env /App/Blog.API.Gerenciamento/out ./
+COPY --from=build-env /App/Blog.API.Gerenciamento/out .
+EXPOSE 80
 ENTRYPOINT ["dotnet", "Blog.API.Gerenciamento.dll"]
